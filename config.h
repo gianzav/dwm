@@ -9,13 +9,13 @@ static const char *fonts[]          = { "BmPlus IBM VGA 8x16" };
 static const char dmenufont[]       = "BmPlus IBM VGA 8x16";
 static const char col_bg[]          = "#3f3f3f";
 static const char col_fg[]          = "#d0d0d0";
-static const char col_gray2[]       = "#444444";
+static const char col_gray3[]       = "#444444";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_green[]       = "#98971a";
 static const char col_cyan[]        = "#87afaf";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_fg, col_bg, col_gray2 },
+	[SchemeNorm] = { col_fg, col_bg, col_fg },
 	[SchemeSel]  = { col_bg, col_cyan,  col_cyan  },
 	[SchemeStatus]  = { col_fg, col_bg,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_bg, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
