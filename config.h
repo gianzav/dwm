@@ -35,7 +35,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
     { "qutebrowser",  NULL,       NULL,       1 << 1,       0,           -1 },
     { "discord",      NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "pavucontrol",  NULL,       NULL,       1 << 8,       1,           -1 },
+	{ "Pavucontrol",  NULL,       NULL,       1 << 8,       1,           -1 },
 	{ "mpv",          NULL,       NULL,       0,            1,           -1 },
 };
 
@@ -50,8 +50,6 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
-
-void spawnfloating(const Arg *arg);
 
 /* key definitions */
 #define MODKEY Mod4Mask
@@ -73,7 +71,6 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ControlMask,           XK_Return, spawnfloating,  {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -124,9 +121,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
-
-void spawnfloating(const Arg *arg) {
-    spawn(arg);
-    togglefloating(arg);
-}
