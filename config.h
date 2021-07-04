@@ -36,7 +36,7 @@ static const Rule rules[] = {
     { "qutebrowser",  NULL,       NULL,       1 << 1,       0,           -1 },
     { "discord",      NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Pavucontrol",  NULL,       NULL,       1 << 8,       1,           -1 },
-	{ "mpv",          NULL,       NULL,       0,            1,           -1 },
+	{ "mpv",          NULL,       NULL,       1 << 4,       1,           -1 },
 };
 
 /* layout(s) */
@@ -69,8 +69,8 @@ static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	/* { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } }, */
+	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } }, */
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
